@@ -83,7 +83,7 @@ FIELD_ERROR = {}
         
     }
 setAlert = (status, text) => {
-    const el = document.querySelector(`alert`)
+    const el = document.querySelector(`.alert`)
     if(status === 'progress') {
         el.className = 'alert alert--progress'
     } else if(status === 'success') {
