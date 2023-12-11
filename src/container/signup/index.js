@@ -70,9 +70,12 @@ class SignupForm extends Form {
           },
           body: this.convertData(),
          })
+
          const data = await res.json()
+
          if(res.ok) {
           this.setAlert('success', data.message)
+        alert(data.session.token)
          } else {
           this.setAlert('error', data.message)
          }
