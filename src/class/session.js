@@ -1,8 +1,15 @@
+const { use } = require("../route/auth")
+
 class Session {
 static #list = []
 constructor(user) {
   this.token = Session.generateCode()
-  this.user = user
+  this.user = {
+    email: user.email,
+    isConfirm: user.isConfirm,
+    role: user.role,
+    id: user.id, 
+  }
 }
 static generateCode = () => {
   const length = 6
@@ -18,7 +25,7 @@ static generateCode = () => {
 }
 
 
-static create = (data) => {
+static create = (user) => {
 const session = new Session(user)
 this.#list.push(session)
 return session
@@ -35,5 +42,5 @@ static get = (token) => {
 module.exports = {
   Session,
 }
-Session.generateCode()
+// Session.generateCode()
 console.log(Session.generateCode())
