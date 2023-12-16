@@ -68,7 +68,9 @@ router.get('/logout', function (req, res) {
   // ↑↑ сюди вводимо JSON дані
 })
 const auth = require('./auth')
+const user = require('./user')
 router.use('/', auth)
+router.use('/', user)
 
 // Підключаємо роутер до бек-енду
 module.exports = router
